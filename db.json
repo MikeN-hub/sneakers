@@ -1,0 +1,88 @@
+{
+  "sneakers": [
+    {
+      "id": 1,
+      "photo": "img/sneakers/1.png",
+      "brand": "Nike",
+      "name": "Blazer Mid Suede",
+      "price": 12999
+    },
+    {
+      "id": 2,
+      "photo": "img/sneakers/2.png",
+      "brand": "Nike",
+      "name": "Air Max 270",
+      "price": 12999
+    },
+    {
+      "id": 3,
+      "photo": "img/sneakers/3.png",
+      "brand": "Nike",
+      "name": "Blazer Mid Suede",
+      "price": 8490
+    },
+    {
+      "id": 4,
+      "photo": "img/sneakers/4.png",
+      "brand": "Puma",
+      "name": "X Aka Boku Future Rider",
+      "price": 9990
+    },
+    {
+      "id": 5,
+      "photo": "img/sneakers/5.png",
+      "brand": "Under Armour",
+      "name": "Curry 8",
+      "price": 12999
+    },
+    {
+      "id": 6,
+      "photo": "img/sneakers/6.png",
+      "brand": "Nike",
+      "name": "Kyrie 7",
+      "price": 12999
+    },
+    {
+      "id": 7,
+      "photo": "img/sneakers/7.png",
+      "brand": "Jordan",
+      "name": "Air Jordan 11",
+      "price": 8490
+    },
+    {
+      "id": 8,
+      "photo": "img/sneakers/8.png",
+      "brand": "Nike",
+      "name": "Le Bron XVIII",
+      "price": 9990
+    },
+    {
+      "id": 9,
+      "photo": "img/sneakers/9.png",
+      "brand": "Nike",
+      "name": "Le Bron XVIII Low",
+      "price": 12999
+    },
+    {
+      "id": 10,
+      "photo": "img/sneakers/10.png",
+      "brand": "Nike",
+      "name": "Blazer Mid Suede",
+      "price": 12999
+    },
+    {
+      "id": 11,
+      "photo": "img/sneakers/11.png",
+      "brand": "Nike",
+      "name": "KD 2021",
+      "price": 8490
+    },
+    {
+      "id": 12,
+      "photo": "img/sneakers/12.png",
+      "brand": "Puma",
+      "name": "Kobe 2020",
+      "price": 9990
+    }
+  ]
+}

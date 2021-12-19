@@ -1,7 +1,4 @@
 import React from "react";
-import kermit from "../../img/kermit.png";
-import adidasDisney from "../../img/adidasDisney.png";
-import arrowRight from "../../img/arrowRight.png";
 import "./Promo.scss";
 
 const Promo = () => {
@@ -9,7 +6,7 @@ const Promo = () => {
     <div className="Kermit">
       <div className="kermitLeft">
         <div className="adidasDisney">
-          <img src={adidasDisney} alt="" />
+          <img src='img/icons/adidasDisney.png' alt="" />
         </div>
         <div className="kermitText">
           <p><span>StanSmith</span><span>,</span></p>
@@ -18,9 +15,9 @@ const Promo = () => {
         <button className="buy">Купить</button>
       </div>
       <div className="kermit-right">
-        <img src={kermit} alt="" />
+        <img src='img/kermit.png' alt="" />
       </div>
-      <img className="arrowRight" src={arrowRight} alt="" width={50} height={50}/>
+      <img className="arrowRight" src='img/icons/arrowRight.png' alt="" width={50} height={50}/>
     </div>
   );
 };

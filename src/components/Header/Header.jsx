@@ -1,15 +1,16 @@
-import logo from '../../img/logo.png'
-import cart from '../../img/cart.png'
-import heart from '../../img/heart.png'
-import login from '../../img/login.png'
 import './Header.scss'
 
-const Header = () => {
+const Header = ({ setShowCart}) => {
+
+  const handleCartClick = () => {
+    
+  }
+
   return (
     <div className="Header">
       <div className="headerLeft">
         <div className="logo">
-          <img src={logo} alt="" />
+          <img src='img/icons/logo.png' alt="" />
         </div>
         <div className="headerTitle">
           <h1>react sneakers</h1>
@@ -18,14 +19,14 @@ const Header = () => {
       </div>
       <div className="headerRight">
         <div className="cart">
-          <img src={cart} alt="" />
+          <img onClick={() => setShowCart(true)} className='cartIcon' src='img/icons/cart.png' alt="" />
           <span className="price">1205 руб.</span>
         </div>
         <div className="heart">
-          <img src={heart} alt="" />
+          <img src='img/icons/heart.png' alt="" />
         </div>
         <div className="login">
-          <img src={login} alt="" />
+          <img src='img/icons/login.png' alt="" />
         </div>
       </div>
     </div>

@@ -84,5 +84,21 @@
       "name": "Kobe 2020",
       "price": 9990
     }
+  ],
+  "cart": [
+    {
+      "id": 3,
+      "photo": "img/sneakers/3.png",
+      "brand": "Nike",
+      "name": "Blazer Mid Suede",
+      "price": 8490
+    },
+    {
+      "id": 2,
+      "photo": "img/sneakers/2.png",
+      "brand": "Nike",
+      "name": "Air Max 270",
+      "price": 12999
+    }
   ]
 }

@@ -8,6 +8,9 @@
   align-items: center;
   justify-content: center;
   gap: 20px;
+  &:hover {
+    transform: translateY(-5px);
+  }
   .cardFooter {
     width: 100%;
     display: flex;

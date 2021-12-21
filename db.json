@@ -99,6 +99,20 @@
       "brand": "Nike",
       "name": "Air Max 270",
       "price": 12999
+    },
+    {
+      "id": 1,
+      "photo": "img/sneakers/1.png",
+      "brand": "Nike",
+      "name": "Blazer Mid Suede",
+      "price": 12999
+    },
+    {
+      "id": 4,
+      "photo": "img/sneakers/4.png",
+      "brand": "Puma",
+      "name": "X Aka Boku Future Rider",
+      "price": 9990
     }
   ]
 }

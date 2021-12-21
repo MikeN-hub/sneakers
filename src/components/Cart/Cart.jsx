@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import "./Cart.scss";
 
-const Cart = ({ cartList, setShowCart, removeFromCart }) => {
+const Cart = ({ cartList, setShowCart, removeFromCart, calculateSum }) => {
   const docRef = useRef();
 
   const onOverlayClick = e => {
@@ -40,7 +40,7 @@ const Cart = ({ cartList, setShowCart, removeFromCart }) => {
           <div className="bottom-wrapper">
             <div className="total">
               <p>Итого:</p>
-              <p>{cartList.reduce((sum, current) => sum + current.price, 0)} руб.</p>
+              <p>{calculateSum(cartList)} руб.</p>
             </div>
             <div className="tax">
               <p>Налог:</p>

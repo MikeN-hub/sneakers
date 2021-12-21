@@ -1,7 +1,14 @@
-import React from "react";
+import React, { useState } from 'react'
 import './Card.scss'
+import { AiOutlinePlus } from 'react-icons/ai'
+import { AiOutlineCheck } from 'react-icons/ai'
 
 const Card = ({ sneakers, addToCart }) => {
+  const [pushedToCart, setPushedToCart] = useState(false)
+  const plusHandler = () => {
+    addToCart(sneakers.id)
+    setPushedToCart(!pushedToCart)
+  }
   return (
     <div className="Card">
       <div className="cardPhoto">
@@ -16,10 +23,12 @@ const Card = ({ sneakers, addToCart }) => {
           <p>Цена:</p>
           <p>{sneakers.price} руб.</p>
         </div>
-        <button onClick={() => addToCart(sneakers.id)} className="addToCart-btn">+</button>
+        <button onClick={plusHandler} className="addToCart-btn">
+          {pushedToCart ? <AiOutlineCheck color='green'/> : <AiOutlinePlus />}
+        </button>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Card;
+export default Card

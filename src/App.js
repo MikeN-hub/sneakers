@@ -23,6 +23,10 @@ function App() {
   }, []);
   // console.log(cartData);
 
+  const calculateSum = (arr) => {
+    return arr.reduce((sum, current) => sum + current.price, 0)
+  }
+
   const addToCart = id => {
     const newCartItem = sneakersList.find(item => item.id === id);
     setCartList([...cartList, newCartItem]);
@@ -57,9 +61,10 @@ function App() {
           cartList={cartList}
           setShowCart={setShowCart}
           removeFromCart={removeFromCart}
+          calculateSum={calculateSum}
         />
       )}
-      <Header setShowCart={setShowCart} />
+      <Header setShowCart={setShowCart} calculateSum={calculateSum} cartList={cartList} />
       <Promo />
       <CardGrid sneakersList={sneakersList} addToCart={addToCart} />
     </div>

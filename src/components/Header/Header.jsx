@@ -20,7 +20,7 @@ const Header = ({ setShowCart, calculateSum, cartList}) => {
       <div className="headerRight">
         <div className="cart">
           <img onClick={() => setShowCart(true)} className='cartIcon' src='img/icons/cart.png' alt="" />
-          <span className="price">{calculateSum(cartList)},00 р.</span>
+          <span className="price">{calculateSum(cartList)}, 00 р.</span>
         </div>
         <div className="heart">
           <img src='img/icons/heart.png' alt="" />

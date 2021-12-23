@@ -1,14 +1,14 @@
-import React, { useState } from 'react'
-import './Card.scss'
-import { AiOutlinePlus } from 'react-icons/ai'
-import { AiOutlineCheck } from 'react-icons/ai'
+import React, { useState } from "react";
+import "./Card.scss";
+import { AiOutlinePlus } from "react-icons/ai";
+import { AiOutlineCheck } from "react-icons/ai";
 
 const Card = ({ sneakers, addToCart }) => {
-  const [pushedToCart, setPushedToCart] = useState(false)
+  const [pushedToCart, setPushedToCart] = useState(false);
   const plusHandler = () => {
-    addToCart(sneakers.id)
-    setPushedToCart(!pushedToCart)
-  }
+    addToCart(sneakers);
+    setPushedToCart(!pushedToCart);
+  };
   return (
     <div className="Card">
       <div className="cardPhoto">
@@ -24,11 +24,11 @@ const Card = ({ sneakers, addToCart }) => {
           <p>{sneakers.price} руб.</p>
         </div>
         <button onClick={plusHandler} className="addToCart-btn">
-          {pushedToCart ? <AiOutlineCheck color='green'/> : <AiOutlinePlus />}
+          {pushedToCart ? <AiOutlineCheck color="green" /> : <AiOutlinePlus />}
         </button>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Card
+export default Card;

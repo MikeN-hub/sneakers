@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 import "./App.scss";
 import Header from "./components/Header/Header";
@@ -7,51 +8,54 @@ import CardGrid from "./components/CardGrid/CardGrid";
 import Cart from "./components/Cart/Cart";
 
 function App() {
+  const BASE_URL = "http://localhost:3001/";
   const [sneakersList, setSneakersList] = useState([]);
-  // const [cartData, setCartData] = useState([]);
   const [showCart, setShowCart] = useState(false);
   const [cartList, setCartList] = useState([]);
 
   useEffect(() => {
     const getData = async () => {
-      const resSneakers = await fetch("http://localhost:3001/sneakers");
-      setSneakersList(await resSneakers.json());
-      const resCart = await fetch("http://localhost:3001/cart");
-      setCartList(await resCart.json());
+      try {
+        const resSneakers = await axios(`${BASE_URL}sneakers`);
+        const resCartList = await axios(`${BASE_URL}cart`);
+        setSneakersList(resSneakers.data);
+        setCartList(resCartList.data);
+      } catch (error) {
+        console.error(error);
+      }
     };
     getData();
   }, []);
-  // console.log(cartData);
 
   const calculateSum = (arr) => {
-    return arr.reduce((sum, current) => sum + current.price, 0)
-  }
+    return arr.reduce((sum, current) => sum + current.price, 0);
+  };
 
-  const addToCart = id => {
-    const newCartItem = sneakersList.find(item => item.id === id);
-    setCartList([...cartList, newCartItem]);
-    const pushData = async () => {
-      const resPushData = fetch("http://localhost:3001/cart", {
-        method: "POST",
+  const addToCart = async (obj) => {
+    try {
+      const newCartItem = cartList.find((item) => Number(item.id) === Number(obj.id));
+      if (newCartItem) {
+        setCartList((prev) => prev.filter((item) => item !== newCartItem));
+        await axios.delete(`${BASE_URL}cart${newCartItem.id}`);
+      } else {
+        setCartList((prev) => [...prev, newCartItem]);
+        await axios.post(`${BASE_URL}cart`, newCartItem);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const removeFromCart = (id) => {
+    setCartList(cartList.filter((item) => item.id !== id));
+    const deleteData = async () => {
+      const resDeleteData = await fetch("http://localhost:3001/cart", {
+        method: "DELETE",
         headers: {
           "Content-type": "application/json",
         },
-        body: JSON.stringify(newCartItem)
       });
     };
-    pushData()
-  };
-
-  const removeFromCart = id => {
-    setCartList(cartList.filter(item => item.id !== id));
-    const deleteData = async () => {
-      const resDeleteData = await fetch("http://localhost:3001/cart", {
-        method: 'DELETE',
-        headers: {
-          'Content-type': 'application/json'
-        }
-      })
-    }
   };
 
   return (
@@ -64,7 +68,11 @@ function App() {
           calculateSum={calculateSum}
         />
       )}
-      <Header setShowCart={setShowCart} calculateSum={calculateSum} cartList={cartList} />
+      <Header
+        setShowCart={setShowCart}
+        calculateSum={calculateSum}
+        cartList={cartList}
+      />
       <Promo />
       <CardGrid sneakersList={sneakersList} addToCart={addToCart} />
     </div>
